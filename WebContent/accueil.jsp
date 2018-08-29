@@ -14,7 +14,7 @@
 <body>
 
 	<center>
-		<h1>Bienvenu sur la phototheque !</h1>
+		<h1>Bienvenue sur la phototheque !</h1>
 	</center>
 
 	<HR>
