@@ -1,11 +1,13 @@
 package model;
 
+import java.util.Date;
+
 public class Photographe {
 
 	int id;
 	String nom;
 	String prenom;
-	String dateNaissance;
+	Date dateNaissance;
 	String bio;
 	
 	
@@ -27,10 +29,10 @@ public class Photographe {
 	public void setPrenom(String prenom) {
 		this.prenom = prenom;
 	}
-	public String getDateNaissance() {
+	public Date getDateNaissance() {
 		return dateNaissance;
 	}
-	public void setDateNaissance(String dateNaissance) {
+	public void setDateNaissance(Date dateNaissance) {
 		this.dateNaissance = dateNaissance;
 	}
 	public String getBio() {

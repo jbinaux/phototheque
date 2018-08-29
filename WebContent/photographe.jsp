@@ -3,24 +3,17 @@
 <%@page import="java.sql.*"%>
 <%@page import="java.util.ArrayList"%>
 <%@page import="model.*"%>
-<%@page import="java.util.Date"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<title>Phototheque</title>
-<link rel="stylesheet" type="text/css" href="style.css">
+<title>Insert title here</title>
 </head>
 <body>
 
-	<center>
-		<h1>Bienvenu sur la phototheque !</h1>
-	</center>
-
-	<HR>
-
 	<%
 		try {
+			String id = request.getParameter("id");
 			Class.forName("com.mysql.jdbc.Driver");
 
 			String url = "jdbc:mysql://localhost:3306/phototheque";
@@ -31,34 +24,19 @@
 
 			Statement st = (Statement) cn.createStatement();
 
-			String sql = "SELECT * FROM photo";
+			String sql = "SELECT * FROM photographe WHERE id = " + id;
 
 			ResultSet result = (ResultSet) st.executeQuery(sql);
 
-			ArrayList<Photo> listePhotos = new ArrayList<Photo>();
+			Photographe p = new Photographe();
 
-			while (result.next()) {
-				Photo p = new Photo();
-
-				p.setNom(result.getString("nom"));
-				p.setThematique(result.getString("thematique"));
-				p.setId(result.getInt("id"));
-				p.setDescription(result.getString("description"));
-				p.setId_photographe(result.getInt("id_photographe"));
-
-				listePhotos.add(p);
-			}
-
-			out.print("<div><table><tr>");
-			for (int i = 0; i < listePhotos.size(); i++) {
-				if (i % 2 == 0) {
-					out.print("</tr><tr>");
-				}
-				out.print("<td>");
-				out.print("<a href=photographe.jsp?id=" + listePhotos.get(i).getId_photographe() + "><image src=\"images/" + listePhotos.get(i).getNom() + "\"></a>");
-				out.print("</td>");
-			}
-			out.print("</tr></table></div>");
+			result.next();
+			p.setNom(result.getString("nom"));
+			p.setPrenom(result.getString("prenom"));
+			p.setDateNaissance(result.getDate("date_naissance"));
+			p.setBio(result.getString("bio"));
+			
+			out.print("<center><h1>" + p.getPrenom() + " " + p.getNom() + "</h1></center>");
 
 		} catch (ClassNotFoundException e) {
 			// TODO Auto-generated catch block
