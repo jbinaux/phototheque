@@ -8,6 +8,7 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <title>Insert title here</title>
+<link rel="stylesheet" type="text/css" href="style.css">
 </head>
 <body>
 
@@ -37,6 +38,38 @@
 			p.setBio(result.getString("bio"));
 			
 			out.print("<center><h1>" + p.getPrenom() + " " + p.getNom() + "</h1></center>");
+			out.print("<p>Date de naissance : " + p.getDateNaissance() + "</p>");
+			out.print("<p>" + p.getBio() + "</p>");
+			out.print("<HR>");
+			
+			String sql2 = "SELECT * FROM photo WHERE id_photographe = " + id;
+
+			ResultSet result2 = (ResultSet) st.executeQuery(sql2);
+			
+			ArrayList<Photo> listePhotos = new ArrayList<Photo>();
+			
+			while (result2.next()) {
+				Photo p2 = new Photo();
+
+				p2.setNom(result2.getString("nom"));
+				p2.setThematique(result2.getString("thematique"));
+				p2.setId(result2.getInt("id"));
+				p2.setDescription(result2.getString("description"));
+				p2.setId_photographe(result2.getInt("id_photographe"));
+
+				listePhotos.add(p2);
+			}
+
+			out.print("<div><table><tr>");
+			for (int i = 0; i < listePhotos.size(); i++) {
+				if (i % 2 == 0) {
+					out.print("</tr><tr>");
+				}
+				out.print("<td>");
+				out.print("<a href=photographe.jsp?id=" + listePhotos.get(i).getId_photographe() + "><image src=\"images/" + listePhotos.get(i).getNom() + "\"></a>");
+				out.print("</td>");
+			}
+			out.print("</tr></table></div>");
 
 		} catch (ClassNotFoundException e) {
 			// TODO Auto-generated catch block
