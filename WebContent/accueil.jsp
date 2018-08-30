@@ -51,7 +51,8 @@
 
 			out.print("<div><table><tr>");
 			for (int i = 0; i < listePhotos.size(); i++) {
-				if (i % 2 == 0) {
+				if (i % 2 == 0) 
+				{
 					out.print("</tr><tr>");
 				}
 				out.print("<td>");
