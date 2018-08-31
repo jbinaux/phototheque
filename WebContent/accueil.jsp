@@ -13,6 +13,13 @@
 </head>
 <body>
 
+	<div class="connexionInscription">
+		<form action="connexion.jsp">
+			<button>connexion</button>
+		</form>
+		<button>inscription</button>
+	</div>
+
 	<center>
 		<h1>Bienvenue sur la phototheque !</h1>
 	</center>
@@ -51,12 +58,12 @@
 
 			out.print("<div><table><tr>");
 			for (int i = 0; i < listePhotos.size(); i++) {
-				if (i % 2 == 0) 
-				{
+				if (i % 2 == 0) {
 					out.print("</tr><tr>");
 				}
 				out.print("<td>");
-				out.print("<a href=photographe.jsp?id=" + listePhotos.get(i).getId_photographe() + "><image src=\"images/" + listePhotos.get(i).getNom() + "\"></a>");
+				out.print("<a href=photographe.jsp?id=" + listePhotos.get(i).getId_photographe()
+						+ "><image src=\"images/" + listePhotos.get(i).getNom() + "\"></a>");
 				out.print("</td>");
 			}
 			out.print("</tr></table></div>");

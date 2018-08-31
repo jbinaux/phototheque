@@ -2,12 +2,12 @@
 <web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://java.sun.com/xml/ns/javaee" xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_3_0.xsd" id="WebApp_ID" version="3.0">
   <display-name>phototheque</display-name>
   <servlet>  
-    <servlet-name>Accueil</servlet-name>  
-    <jsp-file>/accueil.jsp</jsp-file> 
+    <servlet-name>Accueil</servlet-name>
+    <servlet-class>model.ConnexionServlet</servlet-class>
   </servlet> 
   <servlet-mapping>
     <servlet-name>Accueil</servlet-name>
-    <url-pattern>/accueil</url-pattern>
+<url-pattern>/ConnexionServlet</url-pattern>  
   </servlet-mapping>
   <welcome-file-list>
     <welcome-file>accueil.jsp</welcome-file>
