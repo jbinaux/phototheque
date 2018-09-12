@@ -4,7 +4,7 @@
 <%@page import="java.util.ArrayList"%>
 <%@page import="model.*"%>
 <%@page import="java.util.Date"%>
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<!DOCTYPE html>
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
@@ -14,10 +14,18 @@
 <body>
 
 	<div class="connexionInscription">
-		<form action="connexion.jsp">
-			<button>connexion</button>
-		</form>
-		<button>inscription</button>
+		<table>
+			<tr>
+				<td>
+					<form action="connexion.jsp">
+						<button>connexion</button>
+					</form>
+					<form action="inscription.jsp">
+						<button>inscription</button>
+					</form>
+				</td>
+			</tr>
+		</table>
 	</div>
 
 	<center>
